@@ -2,4 +2,4 @@
 
 ## 1. Pomodoro
 
-- Questions and decesions.
+- I created the files and fill out the documents. The drawborad function is done.
