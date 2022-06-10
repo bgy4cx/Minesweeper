@@ -33,7 +33,7 @@ You don't have to mark all the bombs to win; you just need to open all non-bomb 
 
 ### Process
 
-- To drow a board. 🔴
+- To drow a board. 🔴💿🟢💿
 - The player do a step and the code had to check the fieald if it is a bomb than the game over.
 - If the field was empty the field shows the number of the bomb(s) in the neighbourhood.
 - The player can remark the fields with a flag where the player assume the bomb.
