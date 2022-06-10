@@ -38,4 +38,4 @@ You don't have to mark all the bombs to win; you just need to open all non-bomb 
 - If the field was empty the field shows the number of the bomb(s) in the neighbourhood.
 - The player can remark the fields with a flag where the player assume the bomb.
 - The empty neighbours have to show theirs emptiness.
-- The player wins if no more empty field on the board. 🔴💿
+- The player wins if no more empty field on the board. 🔴💿🟢💿
