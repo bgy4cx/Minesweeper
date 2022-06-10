@@ -17,3 +17,6 @@ def checkWinner(board):
                 win = False
                 break
     return win
+
+def clearNeighbours(board):
+    return -1
