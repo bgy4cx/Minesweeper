@@ -10,4 +10,10 @@ def drawboard(board):
     return True if cannot_draw == False else False
 
 def checkWinner(board):
-    return -1
+    win = True
+    for i in range(len(board[0])):
+        for j in range(len(board[0][0])):
+            if board[i][j] == " ":
+                win = False
+                break
+    return win
