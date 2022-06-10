@@ -1,5 +1,8 @@
-from main import *
+from main import drawboard
 
-def test_main():
-    assert main() == True
+borad = [[' ',' ',' '], [' ',' ',' '], [' ',' ',' ']]
+
+def test_drawboard():
+    assert drawboard(borad) == True
+
 

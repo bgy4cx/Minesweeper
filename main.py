@@ -1,2 +1,2 @@
 def main():
-    return False
+    return True
