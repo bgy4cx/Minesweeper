@@ -8,3 +8,6 @@ def drawboard(board):
     except:
         cannot_draw = True    
     return True if cannot_draw == False else False
+
+def checkWinner(board):
+    return -1
