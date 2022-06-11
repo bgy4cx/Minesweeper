@@ -1,3 +1,6 @@
+from msilib.schema import Billboard
+
+
 def drawboard(board):
     cannot_draw = False
     try:
@@ -19,4 +22,32 @@ def checkWinner(board):
     return win
 
 def clearNeighbours(board):
-    return -1
+    for i in range(9):
+        for i in range(3):
+            for j in range(3):
+                if i<2 and board[i][j] == "_" and board[i+1][j] == " ":
+                    board[i+1][j] = "_"
+                    print('1: ', board)
+                if j<2 and i<2 and board[i][j] == "_" and board[i+1][j+1] == " ":
+                    board[i+1][j+1] = "_"
+                    print('2: ', board)
+                if j<2 and board[i][j] == "_" and board[i][j+1] == " ":
+                    board[i][j+1] = "_"
+                    print('3: ', board)
+                if i>0 and board[i][j] == "_" and board[i-1][j] == " ":
+                    board[i-1][j] = "_"
+                    print('4: ', board)
+                if  j>0 and i>0 and board[i][j] == "_" and board[i-1][j-1] == " ":
+                    board[i-1][j-1] = "_"
+                    print('5: ', board)
+                if  j>0 and board[i][j] == "_" and board[i][j-1] == " ":
+                    board[i][j-1] = "_"
+                    print('6: ', board)
+                if j>0 and i<2 and board[i][j] == "_" and board[i+1][j-1] == " ":
+                    board[i+1][j-1] = "_"
+                    print('7: ', board)
+                if i>0 and j>0 and board[i][j] == "_" and board[i-1][j-1] == " ":
+                    board[i-1][j-1] = "_"
+                    print('8: ', board)
+    print(board)
+    return board

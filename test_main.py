@@ -18,4 +18,7 @@ def test_clearNeighbours_1():
     assert clearNeighbours([['_',' ',' '], [' ',' ',' '], [' ',' ','B']]) == [['_','_','_'], ['_','_','_'], ['_','_','B']]
 
 def test_clearNeighbours_2():
-    assert clearNeighbours([['_',' ','B'], [' ',' ','B'], ['B','B','B']]) == [[['_','_','B'], ['_','_','B'], ['B','B','B']]]
+    assert clearNeighbours([['_',' ','B'], [' ',' ','B'], ['B','B','B']]) == [['_','_','B'], ['_','_','B'], ['B','B','B']]
+
+def test_clearNeighbours_3():
+    assert clearNeighbours([['B','B','B'], ['B',' ',' '], ['B',' ','_']]) == [['B','B','B'], ['B','_','_'], ['B','_','_']]
