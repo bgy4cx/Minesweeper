@@ -1,4 +1,4 @@
-from main import drawboard, checkWinner, clearNeighbours
+from main import drawboard, checkWinner, clearNeighbours, checkBombs
 
 borad = [[' ',' ',' '], [' ',' ',' '], [' ',' ',' ']]
 
@@ -22,3 +22,9 @@ def test_clearNeighbours_2():
 
 def test_clearNeighbours_3():
     assert clearNeighbours([['B','B','B'], ['B',' ',' '], ['B',' ','_']]) == [['B','B','B'], ['B','_','_'], ['B','_','_']]
+
+def test_checkBombs_1():
+    assert checkBombs([[' ',' ',' '], [' ','_','_'], [' ','_','B']]) == [[' ',' ',' '], [' ','1','1'], [' ','1','B']]
+
+def test_checkBombs_2():
+    assert checkBombs([['B','B','B'], ['B','_','B'], ['B','B','B']]) == [['B','B','B'], ['B','8','B'], ['B','B','B']]

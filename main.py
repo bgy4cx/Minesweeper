@@ -51,3 +51,4 @@ def clearNeighbours(board):
                     print('8: ', board)
     print(board)
     return board
+
