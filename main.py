@@ -120,7 +120,7 @@ def addFlag(board, square):
 
 def doStep(board, step):
     if board[step[0]][step[1]] == "B":
-        board[step[0]][step[1]] == "X"
+        board[step[0]][step[1]] = "X"
     if board[step[0]][step[1]] == " ":      
-        board[step[0]][step[1]] == "_"
+        board[step[0]][step[1]] = "_"
     return board
