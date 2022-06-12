@@ -1,4 +1,4 @@
-from main import drawboard, checkWinner, clearNeighbours, checkBombs, addFlag, doStep
+from main import drawboard, checkWinner, clearNeighbours, checkBombs, addFlag, doStep, minesweeper
 
 borad = [[' ',' ',' '], [' ',' ',' '], [' ',' ',' ']]
 
@@ -40,3 +40,18 @@ def test_doStep_1():
 
 def test_doStep_2():
     assert doStep([['B','B','B'], ['B',' ','B'], ['B','B','B']],[0,0]) == [['X','B','B'], ['B',' ','B'], ['B','B','B']]
+
+def test_minesweeper_1():
+    assert minesweeper(['B','B','B'], ['B',' ','B'], ['B','B','B'],"S",[1,1]) == "Win"
+
+def test_minesweeper_1():
+    assert minesweeper(['B','B','B'], ['B',' ','B'], ['B','B','B'],"S",[0,0]) == "Lose"
+
+def test_minesweeper_1():
+    assert minesweeper([[' ',' ',' '], [' ',' ',' '], [' ',' ','B']],"S",[1,1]) == "Win"
+
+def test_minesweeper_1():
+    assert minesweeper([[' ',' ',' '], ['B','B','B'], [' ',' ','B']],"S",[2,1]) == "Next"
+
+def test_minesweeper_1():
+    assert minesweeper([[' ',' ',' '], ['B','B','B'], ['_','_','B']],"F",[2,2]) == "Next"
