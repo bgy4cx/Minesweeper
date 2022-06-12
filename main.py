@@ -117,3 +117,10 @@ def addFlag(board, square):
     elif board[square[0]][square[1]] == "F":
         board[square[0]][square[1]] = " "
     return board
+
+def doStep(board, step):
+    if board[step[0]][step[1]] == "B":
+        board[step[0]][step[1]] == "X"
+    if board[step[0]][step[1]] == " ":      
+        board[step[0]][step[1]] == "_"
+    return board
