@@ -1,9 +1,16 @@
 def drawboard(board):
     cannot_draw = False
+    d_board = board   
     try:
-        f_row = "|"+str(board[0][0])+"|"+str(board[0][1])+"|"+str(board[0][2])+"|\n"
-        s_row = "|"+str(board[1][0])+"|"+str(board[1][1])+"|"+str(board[1][2])+"|\n"
-        t_row = "|"+str(board[2][0])+"|"+str(board[2][1])+"|"+str(board[2][2])+"|\n"
+        for i in range(3):
+            for j in range(3):
+                if board[i][j] == "B":
+                    d_board[i][j] = " "
+                if board[i][j] == "FB":
+                    d_board[i][j] = "F"
+        f_row = "|"+d_board[0][0]+"|"+d_board[0][1]+"|"+d_board[0][2]+"|\n"
+        s_row = "|"+d_board[1][0]+"|"+d_board[1][1]+"|"+d_board[1][2]+"|\n"
+        t_row = "|"+d_board[2][0]+"|"+d_board[2][1]+"|"+d_board[2][2]+"|\n"
         print("",f_row, s_row, t_row,"", sep="+-+-+-+\n")
     except:
         cannot_draw = True    
@@ -24,36 +31,27 @@ def clearNeighbours(board):
             for j in range(3):
                 if i<2 and board[i][j] == "_" and board[i+1][j] == " ":
                     board[i+1][j] = "_"
-                    print('1: ', board)
                 if j<2 and i<2 and board[i][j] == "_" and board[i+1][j+1] == " ":
                     board[i+1][j+1] = "_"
-                    print('2: ', board)
                 if j<2 and board[i][j] == "_" and board[i][j+1] == " ":
                     board[i][j+1] = "_"
-                    print('3: ', board)
                 if i>0 and board[i][j] == "_" and board[i-1][j] == " ":
                     board[i-1][j] = "_"
-                    print('4: ', board)
                 if  j>0 and i>0 and board[i][j] == "_" and board[i-1][j-1] == " ":
                     board[i-1][j-1] = "_"
-                    print('5: ', board)
                 if  j>0 and board[i][j] == "_" and board[i][j-1] == " ":
                     board[i][j-1] = "_"
-                    print('6: ', board)
                 if j>0 and i<2 and board[i][j] == "_" and board[i+1][j-1] == " ":
                     board[i+1][j-1] = "_"
-                    print('7: ', board)
                 if i>0 and j>0 and board[i][j] == "_" and board[i-1][j-1] == " ":
                     board[i-1][j-1] = "_"
-                    print('8: ', board)
-    print(board)
     return board
 
 def checkBombs(board):
     for i in range(3):
         for j in range(3):
             c1 = c2 = c3 = c4 = c5 = c6 = c7 = c8 = False
-            if board[i][j] != "B" and board[i][j] != "F" and board[i][j] != "FB" and board[i][j] != " ":
+            if board[i][j] != "B" and board[i][j] != "X" and board[i][j] != "F" and board[i][j] != "FB" and board[i][j] != " ":
                 for c in range(9):
                     if i<2 and board[i+1][j] == "B" and c1 == False:
                         if board[i][j] == "_":
@@ -124,3 +122,30 @@ def doStep(board, step):
     if board[step[0]][step[1]] == " ":      
         board[step[0]][step[1]] = "_"
     return board
+
+def minesweeper(board, sign, square):
+    if sign == "S":
+        doStep(board, square)
+        clearNeighbours(board)
+        checkBombs(board)
+        drawboard(board)
+        if board[square[0]][square[1]] == "X":
+            print("You are lose! :(")
+            return "Lose"
+        elif checkWinner(board):
+            print("You are win! :)")
+            return "Win"
+        else:
+            print("Done. Next step pls!")
+            return "Next"
+    if sign == "F":
+        addFlag(board, square)
+        drawboard(board)
+        print("Done. Next step pls!")
+        return "Next"
+
+#minesweeper([['B','B','B'], ['B',' ','B'], ['B','B','B']],"S",[1,1])
+#minesweeper([['B','B','B'], ['B',' ','B'], ['B','B','B']],"S",[0,0])
+#minesweeper([[' ',' ',' '], [' ',' ',' '], [' ',' ','B']],"S",[1,1])
+#minesweeper([[' ',' ',' '], ['B','B','B'], [' ',' ','B']],"S",[2,1])
+minesweeper([[' ',' ',' '], ['B','B','B'], ['_','_','B']],"F",[2,2])
