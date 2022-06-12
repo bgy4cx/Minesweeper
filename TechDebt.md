@@ -11,3 +11,7 @@
 ## 4. Pomodoro
 
 - It shows the number of the bombs.
+
+## 5. Pomodoro
+
+- The flad and the step functions are done.
