@@ -15,3 +15,7 @@
 ## 5. Pomodoro
 
 - The flad and the step functions are done.
+
+## 6-7. Pomodoro
+
+- I created the minesweeper function what is the main function. I had to modify the drawborad function becaues it does not have to show every value.
