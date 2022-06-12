@@ -28,3 +28,9 @@ def test_checkBombs_1():
 
 def test_checkBombs_2():
     assert checkBombs([['B','B','B'], ['B','_','B'], ['B','B','B']]) == [['B','B','B'], ['B','8','B'], ['B','B','B']]
+
+def test_addFlag_1():
+    assert addFlag([[' ',' ',' '], [' ',' ',' '], [' ',' ','B']],[2,2]) == [[[' ',' ',' '], [' ','F',' '], [' ',' ','B']]]
+
+def test_addFlag_2():
+    assert addFlag([['B','B','B'], ['B',' ','B'], ['B','B','B']],[0,0]) == [[['FB','B','B'], ['B',' ','B'], ['B','B','B']]]
