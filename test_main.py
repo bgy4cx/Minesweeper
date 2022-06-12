@@ -1,4 +1,4 @@
-from main import drawboard, checkWinner, clearNeighbours, checkBombs, addFlag
+from main import drawboard, checkWinner, clearNeighbours, checkBombs, addFlag, doStep
 
 borad = [[' ',' ',' '], [' ',' ',' '], [' ',' ',' ']]
 
@@ -34,3 +34,9 @@ def test_addFlag_1():
 
 def test_addFlag_2():
     assert addFlag([['B','B','B'], ['B',' ','B'], ['B','B','B']],[0,0]) == [['FB','B','B'], ['B',' ','B'], ['B','B','B']]
+
+def test_doStep_1():
+    assert doStep([[' ',' ',' '], [' ',' ',' '], [' ',' ','B']],[1,1]) == [[' ',' ',' '], [' ','_',' '], [' ',' ','B']]
+
+def test_doStep_2():
+    assert doStep([['B','B','B'], ['B',' ','B'], ['B','B','B']],[0,0]) == [['X','B','B'], ['B',' ','B'], ['B','B','B']]

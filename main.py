@@ -1,7 +1,3 @@
-from msilib.schema import Billboard
-from re import X
-
-
 def drawboard(board):
     cannot_draw = False
     try:
@@ -120,5 +116,4 @@ def addFlag(board, square):
         board[square[0]][square[1]] = "F"
     elif board[square[0]][square[1]] == "F":
         board[square[0]][square[1]] = " "
-    print(board)
     return board
