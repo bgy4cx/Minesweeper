@@ -28,8 +28,8 @@ You don't have to mark all the bombs to win; you just need to open all non-bomb 
 
 ### Guardinas
 
-- Input is a array, a step, flaging option.🔴💿
-- Output is game board with a message.🔴💿
+- Input is a array, a step, flaging option.🔴💿🟢💿
+- Output is game board with a message.🔴💿🟢💿
 
 ### Process
 
