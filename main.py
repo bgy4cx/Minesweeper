@@ -1,4 +1,5 @@
 from msilib.schema import Billboard
+from re import X
 
 
 def drawboard(board):
@@ -106,5 +107,18 @@ def checkBombs(board):
                         else:
                             board[i][j] = str(int(board[i][j]) + 1) 
                         c8 = True
+    print(board)
+    return board
+
+def addFlag(board, square):
+    # It can remove the flag too if it is needed.
+    if board[square[0]][square[1]] == "B":
+        board[square[0]][square[1]] = "FB"
+    elif board[square[0]][square[1]] == "FB":
+        board[square[0]][square[1]] = "B"
+    elif board[square[0]][square[1]] == " ":
+        board[square[0]][square[1]] = "F"
+    elif board[square[0]][square[1]] == "F":
+        board[square[0]][square[1]] = " "
     print(board)
     return board
