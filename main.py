@@ -47,8 +47,8 @@ def clearNeighbours(board):
                     board[i][j-1] = "_"
                 if j>0 and i<2 and board[i][j] == "_" and board[i+1][j-1] == " ":
                     board[i+1][j-1] = "_"
-                if i>0 and j>0 and board[i][j] == "_" and board[i-1][j-1] == " ":
-                    board[i-1][j-1] = "_"
+                if i>0 and j<2 and board[i][j] == "_" and board[i-1][j+1] == " ":
+                    board[i-1][j+1] = "_"
     return board
 
 # It shows information about the number of the bombs in the neighbourhood.
@@ -62,8 +62,9 @@ def checkBombs(board):
                     if i<2 and board[i+1][j] in ["B", "FB"] and c1 == False:
                         if board[i][j] == "_":
                             board[i][j] = "1" 
-                        else:
-                            board[i][j] = str(int(board[i][j]) + 1)
+                        #The below part is not needed because it is the first condition:    
+                        #else:
+                        #    board[i][j] = str(int(board[i][j]) + 1)
                         c1 = True                       
                     if j<2 and i<2 and board[i+1][j+1] in ["B", "FB"] and c2 == False:
                         if board[i][j] == "_":
@@ -107,7 +108,6 @@ def checkBombs(board):
                         else:
                             board[i][j] = str(int(board[i][j]) + 1) 
                         c8 = True
-    print(board)
     return board
 
 # It can remove the flag too if it is needed.
